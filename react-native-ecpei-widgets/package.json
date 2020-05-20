@@ -1,0 +1,35 @@
+{
+  "name": "react-native-ecpei-widgets",
+  "version": "1.0.841",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {},
+  "keywords": [
+    "ecpei"
+  ],
+  "author": "ecpei",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "babel-jest": "23.2.0",
+    "babel-preset-react-native": "^5",
+    "jest": "23.3.0",
+    "react-test-renderer": "16.4.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.3.1",
+    "react-native": ">=0.55.4",
+    "react-navigation": ">=2.0.1",
+    "native-base": ">=2.8.1",
+    "react-native-linear-gradient": ">=2.5.6",
+    "react-native-largelist-v3": ">=3.0.14",
+    "react-native-spring-scrollview": ">=2.0.22",
+    "react-native-picker": ">=4.3.7",
+    "react-native-background-timer": ">=2.1.1",
+    "react-native-vector-icons": ">=4.6.0",
+    "react-native-root-siblings": ">=3.2.1",
+    "react-native-iphone-x-helper": ">=1.2.1"
+  }
+}

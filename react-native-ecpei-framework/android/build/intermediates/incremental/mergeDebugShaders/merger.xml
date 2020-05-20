@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="J:\Project\SupplierPackage\branches\dev_1.0.2\node_modules\react-native-ecpei-framework\android\src\main\shaders"/></dataSet><dataSet config="debug"><source path="J:\Project\SupplierPackage\branches\dev_1.0.2\node_modules\react-native-ecpei-framework\android\src\debug\shaders"/></dataSet></merger>

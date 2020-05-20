@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:clipToPadding">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:windowLightStatusBar">true</item>-->
+        <!--<item name="android:fitsSystemWindows">true</item>      &lt;!&ndash; 会把状态栏变白 &ndash;&gt;-->
+        <!--<item name="android:windowFullscreen">true</item>-->
+        <!--<item name="android:colorEdgeEffect">#FFF</item>-->
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+    </style>
+
+</resources>

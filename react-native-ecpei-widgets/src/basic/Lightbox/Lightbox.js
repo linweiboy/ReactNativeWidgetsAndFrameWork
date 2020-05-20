@@ -1,0 +1,144 @@
+import React, { Component, Children, cloneElement } from 'react';
+import PropTypes from 'prop-types';
+import { Animated, TouchableHighlight, View, YellowBox } from 'react-native';
+
+import LightboxOverlay from './LightboxOverlay';
+
+export default class Lightbox extends Component {
+  static propTypes = {
+    activeProps: PropTypes.object,
+    renderHeader: PropTypes.func,
+    renderContent: PropTypes.func,
+    underlayColor: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    onOpen: PropTypes.func,
+    onClose: PropTypes.func,
+    springConfig: PropTypes.shape({
+      tension: PropTypes.number,
+      friction: PropTypes.number,
+    }),
+    swipeToDismiss: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    swipeToDismiss: true,
+    onOpen: () => { },
+    onClose: () => { },
+  };
+
+  constructor(props) {
+    super(props)
+    YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated']);
+  }
+
+  state = {
+    isOpen: false,
+    origin: {
+      x: 0,
+      y: 0,
+      width: 0,
+      height: 0,
+    },
+    layoutOpacity: 1,
+  };
+
+  getContent = () => {
+    if (this.props.renderContent) {
+      return this.props.renderContent();
+    } else if (this.props.activeProps) {
+      return cloneElement(
+        Children.only(this.props.children),
+        this.props.activeProps
+      );
+    }
+    return this.props.children;
+  }
+
+  getOverlayProps = () => ({
+    isOpen: this.state.isOpen,
+    origin: this.state.origin,
+    renderHeader: this.props.renderHeader,
+    swipeToDismiss: this.props.swipeToDismiss,
+    springConfig: this.props.springConfig,
+    backgroundColor: this.props.backgroundColor,
+    children: this.getContent(),
+    onClose: this.onClose,
+  })
+
+  open = () => {
+    this._root.measure((ox, oy, width, height, px, py) => {
+      this.props.onOpen();
+
+      this.setState({
+        isOpen: (this.props.navigator ? true : false),
+        isAnimating: true,
+        origin: {
+          width,
+          height,
+          x: px,
+          y: py,
+        },
+      }, () => {
+        if (this.props.navigator) {
+          const route = {
+            component: LightboxOverlay,
+            passProps: this.getOverlayProps(),
+          };
+          const routes = this.props.navigator.getCurrentRoutes();
+          routes.push(route);
+          this.props.navigator.immediatelyResetRouteStack(routes);
+        } else {
+          this.setState({
+            isOpen: true,
+          });
+        }
+        setTimeout(() => {
+          this._root && this.setState({ layoutOpacity: 0 })
+        });
+      });
+    });
+  }
+
+  close = () => {
+    throw new Error('Lightbox.close method is deprecated. Use renderHeader(close) prop instead.')
+  }
+
+  onClose = () => {
+    this.setState({ layoutOpacity: 1 }, function () {
+      setTimeout((() => {
+        this.setState({
+          isOpen: false,
+        }, this.props.onClose);
+        if (this.props.navigator) {
+          const routes = this.props.navigator.getCurrentRoutes();
+          routes.pop();
+          this.props.navigator.immediatelyResetRouteStack(routes);
+        }
+      }).bind(this), 50)
+    })
+
+  }
+
+  render() {
+    // measure will not return anything useful if we dont attach a onLayout handler on android
+    return (
+      <View
+        ref={component => this._root = component}
+        style={this.props.style}
+        onLayout={() => { }}
+      >
+        {/* <Animated.Vie style={{ opacity: this.state.layoutOpacity }}> */}
+        <View style={{ flex: 1, opacity: this.state.layoutOpacity }}>
+          <TouchableHighlight
+            underlayColor={this.props.underlayColor}
+            onPress={this.open}
+          >
+            {this.props.children}
+          </TouchableHighlight>
+        </View>
+        {/* </Animated.Vie> */}
+        {this.props.navigator ? false : <LightboxOverlay {...this.getOverlayProps()} />}
+      </View>
+    );
+  }
+}

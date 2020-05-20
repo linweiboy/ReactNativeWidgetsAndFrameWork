@@ -1,0 +1,58 @@
+{
+  "_args": [
+    [
+      "react-native-ecpei-framework@1.0.461",
+      "/Serve/branches/dev_1.0.1"
+    ]
+  ],
+  "_from": "react-native-ecpei-framework@^1.0.508",
+  "_id": "react-native-ecpei-framework@1.0.508",
+  "_inBundle": false,
+  "_integrity": "sha512-XjIRUCd7n1v+1dhFmBDSXpZmTczls71CW7GJY7xmyxjecrdODFaUeVSZ3dk28mY2TxFo9uWB0sK72O578pU80A==",
+  "_location": "/react-native-ecpei-framework",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "react-native-ecpei-framework@^1.0.508",
+    "name": "react-native-ecpei-framework",
+    "escapedName": "react-native-ecpei-framework",
+    "rawSpec": "^1.0.508",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.508"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-ecpei-framework/-/react-native-ecpei-framework-1.0.508.tgz",
+  "_shasum": "9d2d5e4421819a11a93175c83a69bd8ad5b5e00b",
+  "_spec": "react-native-ecpei-framework@^1.0.508",
+  "_where": "J:\\Project\\SupplierPackage\\branches\\dev_1.0.2",
+  "author": {
+    "name": "ecpei"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "master版本",
+  "keywords": [
+    "ecpei",
+    "framework"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "react-native-ecpei-framework",
+  "peerDependencies": {
+    "react": ">=16.3.1",
+    "react-native": ">=0.55.4",
+    "react-redux": ">=5.0.7",
+    "redux": ">=4.0.0",
+    "redux-saga": ">=0.16.0",
+    "redux-saga-thunk": ">=0.7.3",
+    "redux-thunk": ">=2.2.0",
+    "react-native-storage": ">=0.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.508"
+}

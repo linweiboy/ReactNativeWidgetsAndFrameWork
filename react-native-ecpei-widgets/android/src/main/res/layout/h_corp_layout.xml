@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!--android:src="@drawable/beauty"-->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.ecpei.widgets.modules.HCropView.View.CustomImageView
+            android:id="@+id/custom_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            app:min_scale_factor="0.6"
+            app:max_scale_factor="2.0">
+        </com.ecpei.widgets.modules.HCropView.View.CustomImageView>
+
+        <com.ecpei.widgets.modules.HCropView.View.ClipImageBorderView
+            android:id="@+id/clip_image_border"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </com.ecpei.widgets.modules.HCropView.View.ClipImageBorderView>
+
+    </RelativeLayout>
+
+</LinearLayout>
